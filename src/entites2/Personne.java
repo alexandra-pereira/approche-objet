@@ -1,8 +1,10 @@
-package entites;
+package entites2;
+
+import entites.AdressePostale;
 
 public class Personne {
 
-    String nom;
-    String prenom;
-    AdressePostale adressePostale;
+    public String nom;
+    public String prenom;
+    public AdressePostale adressePostale;
 }
