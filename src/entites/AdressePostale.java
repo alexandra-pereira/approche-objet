@@ -16,4 +16,8 @@ public class AdressePostale {
         this.codePostal = codePostal;
         this.ville = ville;
     }
+
+    public String toString() {
+        return numeroRue + libelleRue + codePostal + ville;
+    }
 }

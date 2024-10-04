@@ -58,5 +58,22 @@ public class TestPersonne {
                 personne2.adressePostale.libelleRue + ", " +
                 personne2.adressePostale.codePostal + ", " +
                 personne2.adressePostale.ville);
+
+        personne1.afficherNomComplet();
+        personne2.afficherNomComplet();
+
+        personne1.setNom("Gomez");
+
+        personne1.afficherNomComplet();
+
+        personne2.setPrenom("Jonas");
+
+        personne2.afficherNomComplet();
+
+        personne1.setAdressePostale(adr2);
+
+        Personne p3 = new Personne("Dupont", "Norbert");
+        p3.setAdressePostale(adr2);
+
     }
 }
