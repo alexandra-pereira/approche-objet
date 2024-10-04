@@ -23,14 +23,12 @@ public class TestPersonne {
         personne2.adressePostale.codePostal = "73546";
         personne2.adressePostale.ville = "Mistere";
 
-        // Printing details of the first person
         System.out.println("Personne 1: " + personne1.prenom + " " + personne1.nom);
         System.out.println("Adresse: " + personne1.adressePostale.numeroRue + ", "
                 + personne1.adressePostale.libelleRue + ", "
                 + personne1.adressePostale.codePostal + ", "
                 + personne1.adressePostale.ville);
 
-        // Printing details of the second person
         System.out.println("\nPersonne 2: " + personne2.prenom + " " + personne2.nom);
         System.out.println("Adresse: " + personne2.adressePostale.numeroRue + ", "
                 + personne2.adressePostale.libelleRue + ", "
