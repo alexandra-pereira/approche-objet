@@ -8,6 +8,5 @@ public class TestBanque {
         Compte compte = new Compte("FR786487235472354", 2300.45 );
         System.out.println(compte);
 
-
     }
 }

@@ -24,4 +24,9 @@ public class Compte {
 //    public void setSolde(double solde) {
 //        this.solde = solde;
 //    }
+
+    public String toString() {
+        return "numeroCompte: " + numeroCompte + ", solde: " + solde;
+    }
 }
+
