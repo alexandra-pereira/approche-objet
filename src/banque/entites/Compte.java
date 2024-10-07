@@ -9,21 +9,21 @@ public class Compte {
         this.solde = solde;
     }
 
-//    public String getNumeroCompte() {
-//        return numeroCompte;
-//    }
-//
-//    public void setNumeroCompte(String numeroCompte) {
-//        this.numeroCompte = numeroCompte;
-//    }
-//
-//    public double getSolde() {
-//        return solde;
-//    }
-//
-//    public void setSolde(double solde) {
-//        this.solde = solde;
-//    }
+    public String getNumeroCompte() {
+        return numeroCompte;
+    }
+
+    public void setNumeroCompte(String numeroCompte) {
+        this.numeroCompte = numeroCompte;
+    }
+
+    public double getSolde() {
+        return solde;
+    }
+
+    public void setSolde(double solde) {
+        this.solde = solde;
+    }
 
     public String toString() {
         return "numeroCompte: " + numeroCompte + ", solde: " + solde;

@@ -13,4 +13,14 @@ public class CompteTaux extends Compte {
     public String toString() {
         return super.toString() + ", tauxRémunération=" + tauxRemuneration;
     }
+
+    public double getTauxRemuneration() {
+        return tauxRemuneration;
+    }
+
+    public void setTauxRemuneration(double tauxRemuneration) {
+        this.tauxRemuneration = tauxRemuneration;
+    }
+
+
 }
