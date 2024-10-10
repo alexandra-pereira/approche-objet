@@ -20,6 +20,8 @@ public class LectureFichier {
 //            System.out.println(line);
 //        }
 
+        //String entete = lines[0];
+
         if (lines.size() > 0) {
             lines.remove(0); // This will remove the first line (header)
         }
@@ -37,5 +39,21 @@ public class LectureFichier {
                 villeList.add(ville);
             }
         }
+
+        // Filter cities with population greater than 25,000
+        List<Ville> filteredVilleList = new ArrayList<>();
+
+        Path outputFile = Paths.get("/Users/alexandrapereira/Documents/CDA-JAVA/JAVA-projects/recensement_25000.csv");
+
+        for (Ville ville : villeList) {
+            if (ville.getPopulationTotale() >= 25000) {
+                filteredVilleList.add(ville);
+            }
+        }
+
+
+        Files.write(outputFile, lines.subList(0, Math.min(25000, lines.size())));
+
+        //PAS FINI!! JE REVIENDRAI!!
     }
 }

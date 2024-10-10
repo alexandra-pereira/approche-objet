@@ -13,4 +13,20 @@ public class Ville {
         this.nomRegion = nomRegion;
         this.populationTotale = populationTotale;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getCodeDepartement() {
+        return codeDepartement;
+    }
+
+    public String getNomRegion() {
+        return nomRegion;
+    }
+
+    public int getPopulationTotale() {
+        return populationTotale;
+    }
 }
