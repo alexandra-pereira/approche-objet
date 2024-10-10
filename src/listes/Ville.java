@@ -1,6 +1,6 @@
 package listes;
 
-public class Ville {
+public class Ville implements Comparable<Ville>{
 
     private String nom;
     private int nbHabitants;
@@ -25,5 +25,10 @@ public class Ville {
     @Override
     public String toString() {
         return nom + " (" + nbHabitants + " hab.)";
+    }
+
+    @Override
+    public int compareTo(Ville o) {
+        return 0;
     }
 }
