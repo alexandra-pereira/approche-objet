@@ -10,6 +10,15 @@ public abstract class Operation {
         this.montant = montant;
     }
 
+
+    public String getDate() {
+        return date;
+    }
+
+    public double getMontant() {
+        return montant;
+    }
+
     public abstract String getType();
 
     @Override
