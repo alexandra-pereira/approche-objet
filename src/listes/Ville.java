@@ -1,6 +1,6 @@
 package listes;
 
-public class Ville implements Comparable<Ville>{
+public class Ville implements Comparable<Ville> {
 
     private String nom;
     private int nbHabitants;
@@ -27,29 +27,36 @@ public class Ville implements Comparable<Ville>{
         return nom + " (" + nbHabitants + " hab.)";
     }
 
+    // Méthode compareTo pour trier par nom ou par nombre d'habitants
     @Override
-    public int compareTo(Ville o) {
-        return 0;
-    }
+    public int compareTo(Ville autreVille) {
+        // Par défaut, trier par nom (ordre alphabétique)
+        int nomComparison = this.nom.compareTo(autreVille.getNom());
 
-//    @Override
-//    public boolean equals (Object obj){
-//        if (!(obj instanceof Ville)){
-//            return false;
-//        }
-//        Ville autre = (Ville) obj;
-//    }
+        // Si les noms sont identiques, trier par nombre d'habitants
+        if (nomComparison == 0) {
+            return Integer.compare(this.nbHabitants, autreVille.getNbHabitants());
+        }
+
+        return nomComparison;
+    }
 
     @Override
     public boolean equals(Object obj) {
-        // Check if obj is an instance of Ville
+        // Vérifie si obj est une instance de Ville
         if (!(obj instanceof Ville)) {
             return false;
         }
-        // Cast obj to Ville
+        // Cast obj en Ville
         Ville autre = (Ville) obj;
 
-        // Compare nom and nbHabitants
+        // Compare nom et nbHabitants
         return this.nom.equals(autre.getNom()) && this.nbHabitants == autre.getNbHabitants();
+    }
+
+    @Override
+    public int hashCode() {
+        // Génération d'un hashCode basé sur nom et nbHabitants
+        return this.nom.hashCode() + Integer.hashCode(nbHabitants);
     }
 }

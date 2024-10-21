@@ -16,18 +16,14 @@ public class LectureFichier {
         Path pathFile = Paths.get("/Users/alexandrapereira/Documents/CDA-JAVA/JAVA-projects/recensement.csv");
         List<String> lines = Files.readAllLines(pathFile, StandardCharsets.UTF_8);
 
-//        for (String line : lines) {
-//            System.out.println(line);
-//        }
-
-        //String entete = lines[0];
-
+        // Cette ligne supprime l'en-tête pour le traitement
         if (lines.size() > 0) {
-            lines.remove(0); // This will remove the first line (header)
+            lines.remove(0); // Cela va supprimer la première ligne (en-tête)
         }
 
+        // Lecture du contenu et création des instances de Ville
         for (String line : lines) {
-            System.out.println(line);
+            System.out.println(line); // Vous pouvez choisir de commenter cette ligne si ce n'est pas nécessaire
             String[] tokens = line.split(";");
             if (tokens.length >= 4) {
                 String nom = tokens[1].trim();
@@ -35,25 +31,34 @@ public class LectureFichier {
                 String nomRegion = tokens[3].trim();
                 int populationTotale = Integer.parseInt(tokens[9].replaceAll(" ", ""));
 
+                // Création d'une instance de Ville et ajout à la liste
                 Ville ville = new Ville(nom, codeDepartement, nomRegion, populationTotale);
                 villeList.add(ville);
             }
         }
 
-        // Filter cities with population greater than 25,000
+        // Filtrage des villes avec une population supérieure à 25 000
         List<Ville> filteredVilleList = new ArrayList<>();
-
-        Path outputFile = Paths.get("/Users/alexandrapereira/Documents/CDA-JAVA/JAVA-projects/recensement_25000.csv");
-
         for (Ville ville : villeList) {
             if (ville.getPopulationTotale() >= 25000) {
                 filteredVilleList.add(ville);
             }
         }
 
+        // Écriture des villes filtrées dans un nouveau fichier
+        Path outputFile = Paths.get("/Users/alexandrapereira/Documents/CDA-JAVA/JAVA-projects/recensement_25000.csv");
 
-        Files.write(outputFile, lines.subList(0, Math.min(25000, lines.size())));
+        // Préparation des lignes de sortie, y compris l'en-tête
+        List<String> outputLines = new ArrayList<>();
+        outputLines.add("Nom;Code Departement;Nom Region;Population Totale"); // Ajout de l'en-tête
+        for (Ville ville : filteredVilleList) {
+            outputLines.add(ville.getNom() + ";" + ville.getCodeDepartement() + ";" + ville.getNomRegion() + ";" + ville.getPopulationTotale());
+        }
 
-        //PAS FINI!! JE REVIENDRAI!!
+        // Écriture dans le fichier de sortie
+        Files.write(outputFile, outputLines);
+
+        // Décommentez ceci si vous voulez voir la sortie dans la console
+        // System.out.println("Les villes filtrées avec une population >= 25 000 ont été écrites dans " + outputFile.toString());
     }
 }
